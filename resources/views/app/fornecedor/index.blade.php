@@ -1,21 +1,18 @@
 <h3>Fornecedor</h3>
 
 @isset($fornecedores)
-    @php
-        $i = 0
-    @endphp
-    @while($i < count($fornecedores))
-        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+    @foreach($fornecedores as $fornecedor)
+        Fornecedor: {{ $fornecedor['nome'] }}
         <br>
-        Status: {{ $fornecedores[$i]['status'] }}
+        Status: {{ $fornecedor['status'] }}
         <br>
-        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Dado não preenchido' }}
+        CNPJ: {{ $fornecedor['cnpj'] ?? 'Dado não preenchido' }}
         <br>
-        DDD: {{ $fornecedores[$i]['ddd'] ?? 'Dado não preenchido' }}
+        DDD: {{ $fornecedor['ddd'] ?? 'Dado não preenchido' }}
         <br>
-        Telefone: {{ $fornecedores[$i]['telefone'] ?? 'Dado não preenchido' }}
+        Telefone: {{ $fornecedor['telefone'] ?? 'Dado não preenchido' }}
         <br>
-        @switch($fornecedores[$i]['ddd'])
+        @switch($fornecedor['ddd'])
             @case('11')
                 São Paulo - SP
                 @break
@@ -31,8 +28,5 @@
         @endswitch
         <br>
         <hr>
-        @php
-            $i++
-        @endphp
-    @endwhile
+    @endforeach
 @endisset
