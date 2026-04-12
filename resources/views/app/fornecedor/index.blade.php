@@ -6,14 +6,18 @@
 
 {{-- @unless executa se o retorno for false --}}
 
-Fornecedor: {{ $fornecedores[0]['nome'] }}
-<br>
-Status: {{ $fornecedores[0]['status'] }}
-<br>
-@if (!$fornecedores[0]['status'])
-    Fornecedor Inativo
-@endif
-<br>
-@unless ($fornecedores[0]['status'])
-    Fornecedor Inativo
-@endunless
+
+@isset($fornecedores)
+    Fornecedor: {{ $fornecedores[0]['nome'] }}
+    <br>
+    Status: {{ $fornecedores[0]['status'] }}
+    <br>
+    @isset($fornecedores[0]['cnpj'])
+        CNPJ: {{ $fornecedores[0]['cnpj'] }}
+        <br>
+    @endisset
+
+    @unless ($fornecedores[1]['status'])
+        Fornecedor Inativo
+    @endunless
+@endisset
