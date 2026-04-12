@@ -1,13 +1,10 @@
 <h3>Fornecedor</h3>
 
-@php
-    // if(!<condicao>) {} // Enquanto executa se o retorno for true
-@endphp
-
-{{-- @unless executa se o retorno for false --}}
-
 @isset($fornecedores)
-    @for($i = 0; $i < count($fornecedores); $i++)
+    @php
+        $i = 0
+    @endphp
+    @while($i < count($fornecedores))
         Fornecedor: {{ $fornecedores[$i]['nome'] }}
         <br>
         Status: {{ $fornecedores[$i]['status'] }}
@@ -34,5 +31,8 @@
         @endswitch
         <br>
         <hr>
-    @endfor
+        @php
+            $i++
+        @endphp
+    @endwhile
 @endisset
