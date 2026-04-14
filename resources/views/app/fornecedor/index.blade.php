@@ -2,7 +2,7 @@
 
 @isset($fornecedores)
     @forelse($fornecedores as $fornecedor)
-        Fornecedor: @{{ $fornecedor['nome'] }} // O "@" faz o escapamento da tag de impressão do Blade
+        Iteração atual: {{ $loop->iteration }}
         <br>
         Fornecedor: {{ $fornecedor['nome'] }}
         Status: {{ $fornecedor['status'] }}
@@ -28,6 +28,16 @@
             Estado não identificado
         @endswitch
         <br>
+        @if ($loop->first)
+            Primeira iteração do loop
+            <br>
+        @endif
+        @if ($loop->last)
+            Última iteração do loop
+            <br>
+            Total de registros: {{ $loop->count }}
+            <br>
+        @endif
         <hr>
     @empty
         Não existem fornecedores cadastrados!
