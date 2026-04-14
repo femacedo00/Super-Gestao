@@ -2,8 +2,9 @@
 
 @isset($fornecedores)
     @forelse($fornecedores as $fornecedor)
-        Fornecedor: {{ $fornecedor['nome'] }}
+        Fornecedor: @{{ $fornecedor['nome'] }} // O "@" faz o escapamento da tag de impressão do Blade
         <br>
+        Fornecedor: {{ $fornecedor['nome'] }}
         Status: {{ $fornecedor['status'] }}
         <br>
         CNPJ: {{ $fornecedor['cnpj'] ?? 'Dado não preenchido' }}
