@@ -7,12 +7,19 @@ use Illuminate\Http\Request;
 
 class ContatoController extends Controller
 {
-    public function contato(Request $request)
+    public function contato()
     {
-
-        $contato = new SiteContato;
-        $contato->create($request->all());
-
         return view('site.contato', ['titulo' => 'Contato']);
+    }
+    
+    public function salvar(Request $request) {
+        $request->validate([
+            'nome' => 'required',
+            'telefone' => 'required',
+            'email' => 'required',
+            'motivo_contato' => 'required',
+            'mensagem' => 'required',
+        ]);
+        SiteContato::create($request->all());
     }
 }
