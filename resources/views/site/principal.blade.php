@@ -32,7 +32,7 @@
                     'site.layouts._components.form_contato', 
                     [
                         'classe' => 'borda-branca', 
-                        'motivos_contatos' => $motivos_contatos
+                        'motivo_contatos' => $motivo_contatos
                     ]
                 )
                 

@@ -14,7 +14,7 @@
                     'site.layouts._components.form_contato', 
                     [
                         'classe' => 'borda-preta', 
-                        'motivos_contatos' => $motivos_contatos
+                        'motivo_contatos' => $motivo_contatos
                     ]
                 )
                     <p>A nossa equipe analisará a sua mensagem e retornaremos o mais breve possível!</p>

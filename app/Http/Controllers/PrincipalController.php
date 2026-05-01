@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MotivoContato;
+
 class PrincipalController extends Controller
 {
     public function Principal()
     {
-        $motivos_contatos = [
-            1 => 'Dúvida',
-            2 => 'Elogio',
-            3 => 'Reclamação',
-        ];
+        $motivo_contatos = MotivoContato::all();
 
-        return view('site.principal', ['motivos_contatos' => $motivos_contatos]);
+        return view('site.principal', ['motivo_contatos' => $motivo_contatos]);
     }
 }
