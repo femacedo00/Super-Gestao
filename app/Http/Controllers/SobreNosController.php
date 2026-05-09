@@ -2,8 +2,18 @@
 
 namespace App\Http\Controllers;
 
-class SobreNosController extends Controller
+use App\Http\Middleware\LogAcessoMiddleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
+
+class SobreNosController extends Controller implements HasMiddleware
 {
+    public static function middleware()
+    {
+        return [
+            LogAcessoMiddleware::class,
+        ];
+    }
+
     public function sobreNos()
     {
         return view('site.sobre-nos');

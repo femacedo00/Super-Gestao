@@ -16,7 +16,6 @@ class LogAcessoMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // return $next($request);
         $ip = $request->server->get('REMOTE_ADDR');
         $route = $request->getRequestUri();
         LogAcesso::create(['log' => "IP $ip requisitou a rota $route"]);
