@@ -17,7 +17,7 @@ Route::get('/login', function () {
 })->name('site.login');
 
 // app
-Route::prefix('/app')->group(function () {
+Route::middleware(['log.acesso', 'autenticacao'])->prefix('/app')->group(function () {
     Route::get('/clientes', function () {
         return 'Clientes';
     })->name('app.clientes');
