@@ -6,7 +6,7 @@ use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use Illuminate\Support\Facades\Route;
 
-Route::name('site.index')->get('/', [PrincipalController::class, 'principal']);
+Route::name('site.index')->get('/', [PrincipalController::class, 'principal'])->middleware('log.acesso');
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
 
 Route::get('/contato', [ContatoController::class, 'contato'])->name('site.contato');

@@ -12,7 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->append(LogAcessoMiddleware::class);
+        // $middleware->web(append: [
+        //     LogAcessoMiddleware::class,
+        // ]);
+
+        $middleware->alias([
+            'log.acesso' => LogAcessoMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
