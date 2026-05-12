@@ -12,8 +12,12 @@
             <div style="width: 30%; margin-left:auto; margin-right: auto;">
                 <form action={{ route('site.login') }} method="post">
                     @csrf
-                    <input name="usuario" type="text" placeholder="Usuário" class="borda-preta">
-                    <input name="senha" type="password" placeholder="Usuário" class="borda-preta">
+                    <input name="usuario" value="{{ old('usuario') }}" type="text" placeholder="Usuário" class="borda-preta">
+                    {{ $errors->has('usuario') ? $errors->first('usuario') : null}}
+
+                    <input name="senha" value="{{ old('senha') }}" type="password" placeholder="Usuário" class="borda-preta">
+                    {{ $errors->has('senha') ? $errors->first('senha') : null }}
+
                     <button type="submit" class="borda-preta">
                         Acessar
                     </button>
