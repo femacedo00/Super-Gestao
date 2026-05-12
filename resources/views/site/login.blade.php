@@ -22,7 +22,7 @@
                         Acessar
                     </button>
                 </form>
-                {{ isset($erro) && $erro ? 'Usuário e/ou senha não existe' : null }}
+                {{ isset($erro) && $erro ? $erro : null }}
             </div>
         </div>  
     </div>
