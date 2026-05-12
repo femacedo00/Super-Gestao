@@ -15,13 +15,14 @@
                     <input name="usuario" value="{{ old('usuario') }}" type="text" placeholder="Usuário" class="borda-preta">
                     {{ $errors->has('usuario') ? $errors->first('usuario') : null}}
 
-                    <input name="senha" value="{{ old('senha') }}" type="password" placeholder="Usuário" class="borda-preta">
+                    <input name="senha" value="{{ old('senha') }}" type="password" placeholder="Senha" class="borda-preta">
                     {{ $errors->has('senha') ? $errors->first('senha') : null }}
 
                     <button type="submit" class="borda-preta">
                         Acessar
                     </button>
                 </form>
+                {{ isset($erro) && $erro ? 'Usuário e/ou senha não existe' : null }}
             </div>
         </div>  
     </div>
